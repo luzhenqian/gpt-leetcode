@@ -1,0 +1,31 @@
+{
+  "name": "GPT-LeetCode",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "GPT-LeetCode is an open-source project that leverages the power of GPT (Generative Pre-trained Transformer) to automatically solve algorithmic problems on LeetCode. With GPT-LeetCode, users can save time and effort by delegating the task of problem-solving to a powerful deep learning model. The project is designed to be easy to use and integrate into existing workflows, making it a valuable tool for developers, students, and anyone interested in improving their algorithmic problem-solving skills.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GPT-LeetCode",
+    "default_icon": "assets/images/logo.png"
+  },
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.leetcode.com/*"],
+      "js": ["src/content/content-init.js"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "fetch",
+    "chrome.runtime",
+    "nativeMessaging",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "host_permissions": ["https://*.leetcode.com/"]
+}

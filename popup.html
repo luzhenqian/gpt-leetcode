@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GPT-LeetCode - Automatic Algorithmic Problem Solving</title>
+    <meta
+      name="description"
+      content="GPT-LeetCode is an open-source Chrome extension that uses GPT to automatically solve algorithmic problems on LeetCode."
+    />
+    <meta name="author" content="Your Name Here" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS framework -->
+    <script src="./libs/tailwindcss.js"></script>
+
+    <!-- Syntax highlighting library -->
+    <link rel="stylesheet" href="./libs/highlight.js/default.min.css" />
+    <script src="./libs/highlight.js/highlight.min.js"></script>
+
+    <!-- custom styles -->
+    <style>
+      body {
+        width: 400px;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="p-4 flex flex-col gap-4 items-stretch">
+      <label for="api-key" class="block font-medium text-gray-700">
+        Enter your API key
+      </label>
+      <input
+        id="api-key"
+        placeholder="API key"
+        type="text"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        class="block w-full py-2 px-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 text-gray-700 placeholder-gray-400"
+      />
+
+      <label for="language" class="block font-medium text-gray-700">
+        Select your preferred programming language
+      </label>
+      <select
+        id="language"
+        name="language"
+        class="block w-full py-2 px-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 text-gray-700"
+      >
+        <option value="" disabled selected hidden>Select language</option>
+        <option value="C++">C++</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="Python3">Python3</option>
+        <option value="C">C</option>
+        <option value="C#">C#</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Swift">Swift</option>
+        <option value="Go">Go</option>
+        <option value="Scala">Scala</option>
+        <option value="Kotlin">Kotlin</option>
+        <option value="Rust">Rust</option>
+        <option value="PHP">PHP</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="Racket">Racket</option>
+        <option value="Erlang">Erlang</option>
+        <option value="Elixir">Elixir</option>
+        <option value="Dart">Dart</option>
+      </select>
+
+      <button
+        id="save"
+        class="block w-full py-2 px-3 rounded-lg shadow-sm bg-blue-500 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      >
+        Save
+      </button>
+
+      <button
+        id="start"
+        class="block w-full py-2 px-3 rounded-lg shadow-sm bg-blue-500 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      >
+        Start
+      </button>
+
+      <div class="block relative" id="code-container">
+        <pre
+          class="block border border-gray-300 p-3 rounded-lg shadow-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent overflow-auto"
+        >
+      <code id="code" class="language-html"></code>
+    </pre>
+        <button
+          class="absolute top-2 right-2 bg-gray-200 text-gray-700 rounded-full p-2 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          id="copy"
+        >
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="src/popup/popup.js"></script>
+  </body>
+</html>
