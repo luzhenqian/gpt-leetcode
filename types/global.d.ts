@@ -1,4 +1,4 @@
-declare const chrome: any;
+// declare const chrome: any;
 
 interface ComponentPropsWithPath {
   path: string;

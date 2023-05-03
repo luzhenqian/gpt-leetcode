@@ -2,9 +2,7 @@ import { Link } from 'preact-router';
 import { useState, useEffect, useRef } from 'preact/hooks';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
-
-const CODE_GENERATING_TIME = 2000;
-const CONTENT_SCRIPT_PATH = './dist/content/action.js';
+import { CODE_GENERATING_TIME, CONTENT_SCRIPT_PATH } from '../constants';
 
 async function copyToClipboard(element: HTMLElement) {
   const codeText = element.textContent;

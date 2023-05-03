@@ -16,6 +16,8 @@ const MESSAGE_TYPE_COMPLETE = 'complete';
 const CHROME_STORAGE_KEY_API_KEY = 'apiKey';
 const MESSAGE_TYPE_OUTPUT = 'output';
 const MESSAGE_TYPE_COMPLETED = 'completed';
+const CODE_GENERATING_TIME = 2000;
+const CONTENT_SCRIPT_PATH = './dist/content/action.js';
 
 export {
   DATA_PREFIX,
@@ -28,4 +30,6 @@ export {
   CHROME_STORAGE_KEY_API_KEY,
   MESSAGE_TYPE_OUTPUT,
   MESSAGE_TYPE_COMPLETED,
+  CODE_GENERATING_TIME,
+  CONTENT_SCRIPT_PATH,
 };

@@ -13,6 +13,8 @@ import {
 
 /**
  * Get value from Chrome storage.
+ * @async
+ * @function
  * @param {string} key - The key to get the value.
  * @returns {Promise<any>} The promise that resolves with the value.
  */
@@ -26,6 +28,8 @@ async function getFromChromeStorage(key) {
 
 /**
  * Process chat response chunks.
+ * @async
+ * @function
  * @param {string} chunk - The chat response chunk to process.
  * @param {function} callback - The callback function to handle the processed message.
  */
@@ -49,6 +53,8 @@ function processChatResponseChunk(chunk, callback) {
 
 /**
  * Fetch chat completion from OpenAI API.
+ * @async
+ * @function
  * @param {string} apiKey - The API key to access OpenAI API.
  * @param {string} prompt - The prompt to complete.
  * @param {function} callback - The callback function to handle the output message.
@@ -107,6 +113,8 @@ async function fetchChatCompletion(apiKey, prompt, callback) {
 }
 /**
  * Handle messages sent from the extension popup.
+ * @async
+ * @function
  * @param {Object} message - The message sent from the extension popup.
  * @param {Object} sender - The sender of the message.
  * @param {function} sendResponse - The response function to send back to the popup.
