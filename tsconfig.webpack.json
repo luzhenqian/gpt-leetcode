@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "target": "es2017"
+  },
+  "include": [
+    "webpack.config.ts"
+  ]
+}

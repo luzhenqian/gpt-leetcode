@@ -10,6 +10,7 @@
     "moduleResolution": "node",
   },
   "include": [
+    "./src/**/*.ts",
     "./src/**/*.tsx",
     "./types/global.d.ts"
   ]
