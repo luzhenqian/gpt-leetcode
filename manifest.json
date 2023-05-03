@@ -9,12 +9,12 @@
     "default_icon": "assets/images/logo.png"
   },
   "background": {
-    "service_worker": "src/background/background.js"
+    "service_worker": "dist/background/background.js"
   },
   "content_scripts": [
     {
       "matches": ["https://*.leetcode.com/*"],
-      "js": ["src/content/content-init.js"]
+      "js": ["dist/content/initializer.js"]
     }
   ],
   "permissions": [
