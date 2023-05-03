@@ -21,24 +21,20 @@ GPT-LeetCode is a Chrome plugin that empowers users to automatically solve algor
 - 🔧 **User-Friendly**: Simple and intuitive to use, even for those new to GPT or LeetCode.
 - 📚 **Educational Tool**: Improve your algorithmic problem-solving skills by studying GPT-generated solutions.
 
-## Installation
-
-Follow these easy steps to add GPT-LeetCode to your Chrome browser:
-
-1. Clone the repository: `git clone https://github.com/luzhenqian/gpt-leetcode.git`
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top-right corner
-4. Click "Load unpacked" and select the `gpt-leetcode` folder you cloned earlier
-5. GPT-LeetCode is now installed! Visit [LeetCode](https://leetcode.com/) to start using the plugin
-
 ## Usage
 
-Using GPT-LeetCode is as simple as:
+Follow the detailed steps below to add the GPT-LeetCode extension to your Chrome browser:
 
-1. Navigate to a LeetCode problem page
-2. Click the GPT-LeetCode icon in your Chrome toolbar
-3. Watch as GPT-LeetCode generates a solution to the problem
-4. Analyze the solution and apply the insights to strengthen your problem-solving abilities
+1. Clone the repository: Run the command `git clone https://github.com/luzhenqian/gpt-leetcode.git`
+2. Install the project dependencies: Run `yarn install` or `npm install` in the terminal
+3. Execute the build script: Run `yarn build` or `npm run build` in the terminal
+4. Launch the Chrome browser and navigate to `chrome://extensions/`
+5. In the top-right corner of the page, enable "Developer Mode"
+6. Click "Load Unpacked Extension" and then select the `gpt-leetcode` folder you just cloned
+7. The GPT-LeetCode extension is now installed! Visit [LeetCode](https://leetcode.com/) and enter the answer page for a specific problem. Click on the tiger head logo of the get-leetcode plugin to bring up the configuration interface
+8. In the configuration interface, enter your OpenAI API Key in the api-key input box. Choose your desired programming language from the language options. Click save when finished. The page will automatically navigate back to the start interface
+9. Click the "Generate" button, and the corresponding answer will appear on the screen
+10. Congratulations! The GPT-LeetCode extension is now successfully running.
 
 ## Contributing
 
