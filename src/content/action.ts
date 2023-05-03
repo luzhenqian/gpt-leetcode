@@ -1,3 +1,5 @@
+import { generatePrompt } from './initializer';
+
 // Function to send a message to the background script to complete the prompt
 async function sendCompletionRequest() {
   try {
