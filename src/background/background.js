@@ -38,9 +38,9 @@ async function fetchChatCompletion(apiKey, prompt, callback) {
 I will give you an algorithm problem, including problem description and code template.
 You just need to fill the code template correctly.
 Use the ${language} language.
-Do not use Markdown, without any instructions, we directly output the original code.
-Do not use Markdown, without any instructions, we directly output the original code.
-Do not use Markdown, without any instructions, we directly output the original code.
+Do not use Markdown, Do not start with \`\`\`, without any instructions, we directly output the original code.
+Do not use Markdown, Do not start with \`\`\`, without any instructions, we directly output the original code.
+Do not use Markdown, Do not start with \`\`\`, without any instructions, we directly output the original code.
 `,
       },
       {

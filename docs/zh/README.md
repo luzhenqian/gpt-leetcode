@@ -1,5 +1,9 @@
 # GPT-LeetCode
 
+- [English](../../README.md)
+
+- 简体中文
+
 [![GitHub Stars](https://img.shields.io/github/stars/luzhenqian/gpt-leetcode.svg?style=social)](https://github.com/luzhenqian/gpt-leetcode)
 [![GitHub Forks](https://img.shields.io/github/forks/luzhenqian/gpt-leetcode.svg?style=social)](https://github.com/luzhenqian/gpt-leetcode)
 [![GitHub Issues](https://img.shields.io/github/issues/luzhenqian/gpt-leetcode.svg)](https://github.com/luzhenqian/gpt-leetcode/issues)
