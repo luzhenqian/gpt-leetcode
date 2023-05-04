@@ -6,9 +6,7 @@ const SYSTEM_MESSAGE = (
 I will give you an algorithm problem, including problem description and code template.
 You just need to fill the code template correctly.
 Use the ${language} language.
-Do not use Markdown, Do not start with \`\`\`, without any instructions, we directly output the original code.
-Do not use Markdown, Do not start with \`\`\`, without any instructions, we directly output the original code.
-Do not use Markdown, Do not start with \`\`\`, without any instructions, we directly output the original code.`;
+Without any explanation, we directly use markdown to output the original code.`;
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const TEXT_DECODER_TYPE = 'utf-8';
 const DONE_MARKER = '[DONE]';

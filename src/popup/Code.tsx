@@ -1,5 +1,6 @@
 import { Link } from 'preact-router';
 import { useState, useEffect, useRef } from 'preact/hooks';
+import { marked } from 'marked';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 import { CODE_GENERATING_TIME, CONTENT_SCRIPT_PATH } from '../constants';
@@ -108,7 +109,7 @@ export function Code(_: ComponentPropsWithPath) {
     }
 
     generatingTimerRef.current = setTimeout(() => {
-      setCode(extractCode(code));
+      setCode(code);
       setIsGenerating(false);
     }, CODE_GENERATING_TIME);
   }, [code]);
@@ -135,7 +136,15 @@ export function Code(_: ComponentPropsWithPath) {
             id="code"
             ref={codeRef}
             class={`hljs language-${language}`}
-            dangerouslySetInnerHTML={{ __html: hljs.highlightAuto(code).value }}
+            dangerouslySetInnerHTML={{
+              __html: marked(code, {
+                highlight: function (code, lang) {
+                  const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                  const result = hljs.highlight(code, { language }).value;
+                  return result;
+                },
+              }),
+            }}
           ></code>
         </pre>
         <button
