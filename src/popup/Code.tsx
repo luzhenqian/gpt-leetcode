@@ -42,28 +42,6 @@ async function startInjection() {
   }
 }
 
-function extractCode(code: string): string {
-  const regex = /^```[\w+#]*\n?([\s\S]*?)\n?```$/m;
-  const match = code.match(regex);
-  if (match) {
-    return match[1];
-  } else {
-    const commentRegex = /^\/\*[\s\S]*?\*\/([\s\S]*)$/m;
-    const commentMatch = code.match(commentRegex);
-    if (commentMatch) {
-      const code = commentMatch[1].trim();
-      const languageRegex = /^[\w+#]+\s+/;
-      const languageMatch = code.match(languageRegex);
-      if (languageMatch) {
-        return code.slice(languageMatch[0].length);
-      }
-      return code;
-    } else {
-      return code.trim();
-    }
-  }
-}
-
 export function Code(_: ComponentPropsWithPath) {
   const [language, setLanguage] = useState('');
   const [code, setCode] = useState('');
@@ -114,6 +92,37 @@ export function Code(_: ComponentPropsWithPath) {
     }, CODE_GENERATING_TIME);
   }, [code]);
 
+  useEffect(() => {
+    const codeElement = codeRef.current;
+    const parentElement = codeElement.parentElement;
+
+    const observerCallback = (mutationsList, observer) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          const isScrollAtBottom =
+            parentElement.scrollHeight - parentElement.scrollTop ===
+            parentElement.clientHeight;
+
+          if (isScrollAtBottom) {
+            const smoothScrollOptions = {
+              behavior: 'smooth',
+              block: 'end',
+              inline: 'nearest',
+            };
+            codeElement.scrollIntoView(smoothScrollOptions);
+          }
+        }
+      }
+    };
+
+    const observer = new MutationObserver(observerCallback);
+    observer.observe(codeElement, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const codeRef = useRef(null);
 
   return (
@@ -131,8 +140,8 @@ export function Code(_: ComponentPropsWithPath) {
       </button>
 
       <div class={`relative ${code.trim().length > 0 ? 'block' : 'hidden'}`}>
-        <pre class="block border border-gray-300 p-3 rounded-lg shadow-sm text-gray-700 placeholder gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent overflow-auto">
-          <code
+        <div class="block border border-gray-300 p-4 pt-12 rounded-lg shadow-sm text-gray-700 placeholder gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent overflow-auto">
+          <div
             id="code"
             ref={codeRef}
             class={`hljs language-${language}`}
@@ -145,8 +154,8 @@ export function Code(_: ComponentPropsWithPath) {
                 },
               }),
             }}
-          ></code>
-        </pre>
+          ></div>
+        </div>
         <button
           class="absolute top-2 right-2 bg-gray-200 text-gray-700 rounded-full p-2 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
           ref={copyButtonRef}

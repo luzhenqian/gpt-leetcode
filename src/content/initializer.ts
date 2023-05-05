@@ -1,4 +1,4 @@
-import { MESSAGE_TYPE_COMPLETED } from '../constants';
+import { MESSAGE_TYPE_COMPLETED, PROMPT_PREFIX } from '../constants';
 
 /**
  * Generates the topic outline and code template from the current page.
@@ -14,8 +14,7 @@ export async function generatePrompt(): Promise<string | undefined> {
     '.monaco-mouse-cursor-text',
   );
   if (!descriptionEl || !templateEl) return;
-  const prompt = `topic outline: ${descriptionEl.innerText}
-code template: ${templateEl.innerText}`;
+  const prompt = PROMPT_PREFIX(descriptionEl.innerText, templateEl.innerText);
   return prompt;
 }
 
