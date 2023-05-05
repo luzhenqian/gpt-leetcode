@@ -20,6 +20,41 @@ const MESSAGE_TYPE_COMPLETED = 'completed';
 const CODE_GENERATING_TIME = 2000;
 const CONTENT_SCRIPT_PATH = './dist/content/action.js';
 
+const API_KEY = 'apiKey';
+const CODE_LANGUAGE = 'codeLanguage';
+const CODE_LANGUAGES = [
+  'JavaScript',
+  'C++',
+  'Java',
+  'Python',
+  'Python3',
+  'C',
+  'C#',
+  'Ruby',
+  'Swift',
+  'Go',
+  'Scala',
+  'Kotlin',
+  'Rust',
+  'PHP',
+  'TypeScript',
+  'Racket',
+  'Erlang',
+  'Elixir',
+  'Dart',
+];
+const UI_LANGUAGE = 'uiLanguage';
+const UI_LANGUAGES = [
+  {
+    value: 'en',
+    label: 'English',
+  },
+  {
+    value: 'zh',
+    label: '简体中文',
+  },
+];
+
 export {
   DATA_PREFIX,
   MODEL_NAME,
@@ -34,4 +69,9 @@ export {
   MESSAGE_TYPE_COMPLETED,
   CODE_GENERATING_TIME,
   CONTENT_SCRIPT_PATH,
+  API_KEY,
+  CODE_LANGUAGE,
+  CODE_LANGUAGES,
+  UI_LANGUAGE,
+  UI_LANGUAGES,
 };

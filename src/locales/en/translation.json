@@ -1,0 +1,14 @@
+{
+  "settings": {
+    "enter_your_api_key": "Enter your API key",
+    "select_your_preferred_programming_language": "Select your preferred programming language",
+    "select_language": "Select language",
+    "select_your_preferred_ui_language": "Select your preferred UI language",
+    "select_ui_language": "Select UI language",
+    "save": "Save"
+  },
+  "code": {
+    "settings": "Settings",
+    "generate": "Generate"
+  }
+}

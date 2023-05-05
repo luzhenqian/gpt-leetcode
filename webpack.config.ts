@@ -20,9 +20,11 @@ const baseConfig: Configuration = {
   },
   devtool: 'cheap-module-source-map',
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.ts', '.tsx', '.json'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
     },
   },
 };

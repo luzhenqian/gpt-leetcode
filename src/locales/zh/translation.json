@@ -1,0 +1,14 @@
+{
+  "settings": {
+    "enter_your_api_key": "输入您的 API 密钥",
+    "select_your_preferred_programming_language": "选择您喜欢的编程语言",
+    "select_language": "选择语言",
+    "select_your_preferred_ui_language": "选择您喜欢的用户界面语言",
+    "select_ui_language": "选择用户界面语言",
+    "save": "保存"
+  },
+  "code": {
+    "settings": "设置",
+    "generate": "生成"
+  }
+}

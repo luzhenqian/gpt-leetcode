@@ -5,6 +5,7 @@ import hljs from 'highlight.js';
 import { CODE_GENERATING_TIME, CONTENT_SCRIPT_PATH } from '@/constants';
 import { getStorage } from '@/utils/storage';
 import 'highlight.js/styles/github.css';
+import { useTranslation } from 'react-i18next';
 
 async function copyToClipboard(element: HTMLElement) {
   const codeText = element.textContent.trim();
@@ -48,6 +49,7 @@ export function Code() {
   const [isCopied, setIsCopied] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const copyButtonRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     (async () => {
@@ -126,7 +128,7 @@ export function Code() {
   return (
     <>
       <div class="flex justify-end items-center text-gray-400">
-        <Link href="/settings">Settings</Link>
+        <Link href="/settings">{t('code.settings')}</Link>
       </div>
 
       <button
@@ -137,7 +139,7 @@ export function Code() {
         }}
         disabled={isGenerating}
       >
-        Generate
+        {t('code.generate')}
       </button>
 
       <div class={`relative ${code.trim().length > 0 ? 'block' : 'hidden'}`}>
