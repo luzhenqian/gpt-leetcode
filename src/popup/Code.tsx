@@ -6,7 +6,7 @@ import 'highlight.js/styles/github.css';
 import { CODE_GENERATING_TIME, CONTENT_SCRIPT_PATH } from '../constants';
 
 async function copyToClipboard(element: HTMLElement) {
-  const codeText = element.textContent;
+  const codeText = element.textContent.trim();
   const tempInput = document.createElement('textarea');
   tempInput.style.position = 'absolute';
   tempInput.style.left = '-9999px';
@@ -42,7 +42,7 @@ async function startInjection() {
   }
 }
 
-export function Code(_: ComponentPropsWithPath) {
+export function Code() {
   const [language, setLanguage] = useState('');
   const [code, setCode] = useState('');
   const [isCopied, setIsCopied] = useState(false);

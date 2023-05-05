@@ -27,7 +27,7 @@ function Option({ value }: { value: string }) {
   return <option value={value}>{value}</option>;
 }
 
-export function Settings({}: ComponentPropsWithPath) {
+export function Settings() {
   const [apiKey, setApiKey] = useState('');
   const [language, setLanguage] = useState('');
 
@@ -57,7 +57,7 @@ export function Settings({}: ComponentPropsWithPath) {
         spellCheck={false}
         value={apiKey}
         onChange={(e: any) => setApiKey(e.target.value)}
-        className="block w-full py-2 px-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 text-gray-700 placeholder-gray-400"
+        className="block w-full px-3 py-2 text-gray-700 placeholder-gray-400 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         placeholder="API key"
       />
 
@@ -69,7 +69,7 @@ export function Settings({}: ComponentPropsWithPath) {
         name="language"
         value={language}
         onChange={(e: any) => setLanguage(e.target.value)}
-        className="block w-full py-2 px-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 text-gray-700"
+        className="block w-full px-3 py-2 text-gray-700 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       >
         <option value="" disabled selected hidden>
           Select language
@@ -82,7 +82,7 @@ export function Settings({}: ComponentPropsWithPath) {
       <button
         id="save"
         onClick={handleSave}
-        className="block w-full py-2 px-3 rounded-lg shadow-sm bg-blue-500 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        className="block w-full px-3 py-2 text-white bg-blue-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
       >
         Save
       </button>
