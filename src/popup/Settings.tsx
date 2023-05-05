@@ -1,3 +1,4 @@
+import { getStorage } from '@/utils/storage';
 import { route } from 'preact-router';
 import { useEffect, useState } from 'preact/hooks';
 
@@ -32,10 +33,12 @@ export function Settings() {
   const [language, setLanguage] = useState('');
 
   useEffect(() => {
-    chrome.storage.sync.get(['apiKey', 'language'], ({ apiKey, language }) => {
-      setApiKey(apiKey || '');
-      setLanguage(language || '');
-    });
+    (async () => {
+      const _apiKey = await getStorage<string>('apiKey');
+      const _language = await getStorage<string>('language');
+      setApiKey(_apiKey || '');
+      setLanguage(_language || '');
+    })();
   }, []);
 
   const handleSave = () => {

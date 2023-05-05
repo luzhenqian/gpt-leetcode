@@ -3,13 +3,15 @@ import { useEffect } from 'preact/hooks';
 import { Code } from '@/popup/Code';
 import { Settings } from '@/popup/Settings';
 import { Router, route } from 'preact-router';
+import { getStorage } from '@/utils/storage';
 import '../style.css';
 
 function App() {
   useEffect(() => {
-    chrome.storage.sync.get(['apiKey'], ({ apiKey }) => {
+    (async () => {
+      const apiKey = getStorage('apiKey');
       route(apiKey ? '/code' : '/settings');
-    });
+    })();
   }, []);
 
   return (

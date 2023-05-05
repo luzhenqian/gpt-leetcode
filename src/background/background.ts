@@ -10,21 +10,7 @@ import {
   SYSTEM_MESSAGE,
   TEXT_DECODER_TYPE,
 } from '@/constants';
-
-/**
- * Get value from Chrome storage.
- * @async
- * @function
- * @param {string} key - The key to get the value.
- * @returns {Promise<any>} The promise that resolves with the value.
- */
-async function getFromChromeStorage(key) {
-  return new Promise((resolve) => {
-    chrome.storage.sync.get([key], (result) => {
-      resolve(result[key]);
-    });
-  });
-}
+import { getStorage } from '@/utils/storage';
 
 /**
  * Process chat response chunks.
@@ -61,7 +47,7 @@ function processChatResponseChunk(chunk, callback) {
  */
 async function fetchChatCompletion(apiKey, prompt, callback) {
   if (!prompt) return;
-  const language = await getFromChromeStorage('language');
+  const language = await getStorage('language');
   if (!language) return;
 
   const url = OPENAI_API_URL;
@@ -120,7 +106,7 @@ async function fetchChatCompletion(apiKey, prompt, callback) {
  */
 async function handleMessage(message, sender, sendResponse) {
   if (message.type === MESSAGE_TYPE_COMPLETE) {
-    const apiKey = await getFromChromeStorage(CHROME_STORAGE_KEY_API_KEY);
+    const apiKey = await getStorage(CHROME_STORAGE_KEY_API_KEY);
     const res = await fetchChatCompletion(apiKey, message.data, (message) => {
       chrome.runtime.sendMessage({
         type: MESSAGE_TYPE_OUTPUT,

@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'preact/hooks';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
 import { CODE_GENERATING_TIME, CONTENT_SCRIPT_PATH } from '@/constants';
+import { getStorage } from '@/utils/storage';
 import 'highlight.js/styles/github.css';
 
 async function copyToClipboard(element: HTMLElement) {
@@ -43,21 +44,18 @@ async function startInjection() {
 }
 
 export function Code() {
-  const [language, setLanguage] = useState('');
   const [code, setCode] = useState('');
   const [isCopied, setIsCopied] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const copyButtonRef = useRef(null);
 
   useEffect(() => {
-    chrome.storage.sync.get(['language', 'code'], (result) => {
-      if (result.code) {
-        setCode(result.code);
+    (async () => {
+      const _code = await getStorage<string>('code');
+      if (_code) {
+        setCode(_code);
       }
-      if (result.language) {
-        setLanguage(result.language);
-      }
-    });
+    })();
 
     const listener = (message, sender, sendResponse) => {
       if (message.type === 'output') {
@@ -145,9 +143,7 @@ export function Code() {
       <div class={`relative ${code.trim().length > 0 ? 'block' : 'hidden'}`}>
         <div class="block border border-gray-300 p-4 pt-12 rounded-lg shadow-sm text-gray-700 placeholder gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent overflow-auto">
           <div
-            id="code"
             ref={codeRef}
-            class={`hljs language-${language}`}
             dangerouslySetInnerHTML={{
               __html: marked(code, {
                 highlight: function (code, lang) {
