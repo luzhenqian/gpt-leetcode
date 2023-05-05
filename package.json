@@ -13,6 +13,7 @@
   "private": false,
   "dependencies": {
     "highlight.js": "^11.8.0",
+    "marked": "^5.0.0",
     "preact": "^10.13.2",
     "preact-router": "^4.1.0",
     "zustand": "^4.3.7"

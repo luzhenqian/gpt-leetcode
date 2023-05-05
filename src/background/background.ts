@@ -28,7 +28,6 @@ async function getFromChromeStorage(key) {
 
 /**
  * Process chat response chunks.
- * @async
  * @function
  * @param {string} chunk - The chat response chunk to process.
  * @param {function} callback - The callback function to handle the processed message.
