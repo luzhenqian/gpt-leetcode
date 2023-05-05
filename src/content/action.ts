@@ -1,5 +1,5 @@
-import { MESSAGE_TYPE_COMPLETE } from '../constants';
-import { generatePrompt } from './initializer';
+import { MESSAGE_TYPE_COMPLETE } from '@/constants';
+import { generatePrompt } from '@/content/initializer';
 
 /**
  * Sends a message to the background script to complete the prompt.

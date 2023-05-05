@@ -10,7 +10,13 @@
     "moduleResolution": "node",
     "typeRoots": [
       "node_modules/@types"
-    ]
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "*"
+      ]
+    }
   },
   "include": [
     "./src/**/*.ts",

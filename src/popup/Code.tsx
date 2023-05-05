@@ -2,8 +2,8 @@ import { Link } from 'preact-router';
 import { useState, useEffect, useRef } from 'preact/hooks';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
+import { CODE_GENERATING_TIME, CONTENT_SCRIPT_PATH } from '@/constants';
 import 'highlight.js/styles/github.css';
-import { CODE_GENERATING_TIME, CONTENT_SCRIPT_PATH } from '../constants';
 
 async function copyToClipboard(element: HTMLElement) {
   const codeText = element.textContent.trim();
@@ -127,13 +127,16 @@ export function Code() {
 
   return (
     <>
-      <Link href="/settings">
-        <div class="flex justify-end items-center text-gray-400">Settings</div>
-      </Link>
+      <div class="flex justify-end items-center text-gray-400">
+        <Link href="/settings">Settings</Link>
+      </div>
 
       <button
         class="block w-full py-2 px-3 rounded-lg shadow-sm bg-blue-500 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
-        onClick={startInjection}
+        onClick={() => {
+          setIsGenerating(true);
+          startInjection();
+        }}
         disabled={isGenerating}
       >
         Generate

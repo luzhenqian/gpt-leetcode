@@ -9,7 +9,7 @@ import {
   OPENAI_API_URL,
   SYSTEM_MESSAGE,
   TEXT_DECODER_TYPE,
-} from '../constants';
+} from '@/constants';
 
 /**
  * Get value from Chrome storage.

@@ -1,7 +1,7 @@
 import { render } from 'preact';
 import { useEffect } from 'preact/hooks';
-import { Code } from './Code';
-import { Settings } from './Settings';
+import { Code } from '@/popup/Code';
+import { Settings } from '@/popup/Settings';
 import { Router, route } from 'preact-router';
 import '../style.css';
 

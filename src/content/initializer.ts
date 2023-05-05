@@ -1,4 +1,4 @@
-import { MESSAGE_TYPE_COMPLETED, PROMPT_PREFIX } from '../constants';
+import { MESSAGE_TYPE_COMPLETED, PROMPT_PREFIX } from '@/constants';
 
 /**
  * Generates the topic outline and code template from the current page.
